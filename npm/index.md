@@ -1,4 +1,4 @@
-### npm
+## npm
 
 npm 是全球最大的包管理器。
 
@@ -6,11 +6,11 @@ npm 是全球最大的包管理器。
 
 npm 自带 CLI (命令行工具) ，开发者通过 CLI 与 npm 打交道。
 
-### npm script
+## npm script
 
 通过 npm script 我们可以构建出一套前端工作流。
 
-**新建 package.json ** 
+**新建 package.json** 
 
 ```shell
 # 修改默认 config
@@ -41,7 +41,7 @@ npm init -y
 }
 ```
 
-**基础的 npm script ** 
+**基础的 npm script** 
 
 ```shell
 # 安装包
@@ -130,7 +130,7 @@ npm run env
 * 压缩图片，压缩 css 和 js 文件
 * 资源版本号和引用替换
 
-### CommonJS 模块机制
+## CommonJS 模块机制
 
 * node_modules
 
