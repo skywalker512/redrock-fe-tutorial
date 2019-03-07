@@ -1,0 +1,14 @@
+{
+   "plugins": ["prettier"],
+   "extends": ["standard", "plugin:prettier/recommended"],
+   "env": {
+     "es6": true,
+     "browser": true,
+     "node": true,
+     "commonjs": true
+   },
+   "rules": {
+      "prettier/prettier": "error",
+      "no-unused-vars": "off"
+   }
+}
