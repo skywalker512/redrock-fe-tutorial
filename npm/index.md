@@ -13,6 +13,9 @@ npm 自带 CLI (命令行工具) ，开发者通过 CLI 与 npm 打交道。
 **新建 package.json** 
 
 ```shell
+# 设置淘宝镜像源
+npm config set registry https://registry.npm.taobao.org -g
+npm config set disturl https://npm.taobao.org/dist -g
 # 修改默认 config
 npm config set init.author.name "RetroAstro"
 npm config set init.license "MIT"
@@ -115,9 +118,7 @@ npm run env
 
 **实现页面自动刷新**
 
-* http-server
-
-* live-reload
+* browser-sync
 
 **使用 Git Hooks**
 

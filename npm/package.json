@@ -5,12 +5,22 @@
   "main": "index.js",
   "author": "RetroAstro",
   "license": "MIT",
+  "config": {
+    "files": "dist/{images,styles,scripts}"
+  },
   "scripts": {
     "lint-js": "eslint src/**/*.js",
     "lint-js-fix": "eslint src/**/*.js --fix",
     "lint-scss": "stylelint src/**/*.scss",
     "lint-scss-fix": "stylelint src/**/*.scss --fix",
-    "build": "scripty",
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "clean": "rm -rf dist && mkdir -p $npm_package_config_files",
+    "shell": "scripty",
+    "shell:images": "scripty",
+    "shell:styles": "scripty",
+    "shell:scripts": "scripty",
+    "pretest": "npm run lint-js && npm run lint-scss",
     "test": "mocha tests/index.spec.js"
   },
   "husky": {
@@ -30,7 +40,9 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "browser-sync": "^2.26.3",
     "chai": "^4.2.0",
+    "chalk": "^2.4.2",
     "eslint": "^5.15.1",
     "eslint-config-prettier": "^4.1.0",
     "eslint-config-standard": "^12.0.0",
@@ -44,6 +56,7 @@
     "mocha": "^6.0.2",
     "prettier": "^1.16.4",
     "scripty": "^1.9.1",
+    "shelljs": "^0.8.3",
     "stylelint": "^9.10.1",
     "stylelint-config-standard": "^18.2.0",
     "stylelint-scss": "^3.5.4"
