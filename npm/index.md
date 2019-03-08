@@ -148,7 +148,7 @@ chmod -R a+x scripts
 
 `require` 命令基本功能是读取并执行一个 JS 文件，然后返回该模块的 exports 对象。
 
-```js 
+```js
 function Module () {
     this.exports = {}
 }
