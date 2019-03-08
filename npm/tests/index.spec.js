@@ -1,5 +1,5 @@
 const expect = require('chai').expect
-const { add } = require('../src/main')
+const { add } = require('../src/scripts/main')
 
 describe('#add', () => {
    it('should return sum when param are numbers', () => {

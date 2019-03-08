@@ -116,18 +116,23 @@ npm run env
 * scripty
 * shelljs
 
+```shell
+# 为脚本文件添加可执行权限
+chmod -R a+x scripts
+```
+
 **实现页面自动刷新**
 
-* browser-sync
+* browser-sync 
 
 **使用 Git Hooks**
 
 * husky
 * lint-staged
 
-**利用 npm script 构建前端项目**
+**利用 npm script 构建前端项目** 
 
-* 使用 CSS 预处理器
+* 使用 CSS 预处理器（sass、less、stylus ...）
 * 压缩图片，压缩 css 和 js 文件
 * 资源版本号和引用替换
 
