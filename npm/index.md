@@ -136,11 +136,89 @@ chmod -R a+x scripts
 * 压缩图片，压缩 css 和 js 文件
 * 资源版本号和引用替换
 
-## CommonJS 模块机制
+## CommonJS 规范
 
 * node_modules
 
 * module 对象
 * require 命令
 * 模块的加载机制
+
+每个文件就是一个模块，有自己的私有作用域，module 对象代表当前模块。
+
+`require` 命令基本功能是读取并执行一个 JS 文件，然后返回该模块的 exports 对象。
+
+```js 
+function Module () {
+    this.exports = {}
+}
+
+var module = new Module()
+var exports = module.exports
+
+// a.js
+var x = 5
+var add = function (a, b) {
+    return a + b
+}
+
+exports.x = x
+module.exports.add = add
+
+// b.js 
+var obj = require('./a.js')
+
+console.log(obj.x) // 5
+console.log(obj.add(1 + 1)) // 2
+```
+
+若执行 `require` 时不以相对路径加载，以在 `/home/user/projects/foo.js` 中调用 `require('bar.js')` 为例，则相应的文件查找规则应为：
+
+```js
+# /usr/local/lib/node/bar.js
+# /home/user/projects/node_modules/bar.js
+# /home/user/node_modules/bar.js
+# /home/node_modules/bar.js
+# /node_modules/bar.js
+```
+
+CommonJS 模块的加载机制是，输入的是被输出的值的拷贝，即一旦输出一个值，模块内部的变化就影响不到这个值。但当输出值为对象时，输入的则为输出对象的引用，因此结果会有所不同。
+
+```js
+// a.js
+var counter = 3;
+
+function incCounter() {
+  counter++
+}
+
+module.exports = {
+  counter,
+  incCounter
+}
+
+// b.js
+var { counter, incCounter } = require('./a.js')
+
+console.log(counter)  // 3
+incCounter()
+console.log(counter) // 3
+```
+
+```js
+// a.js
+var obj = { a: 2 }
+var func = () => obj.a++
+
+module.exports = { obj, func }
+
+// b.js
+var { obj, func } = require('./a.js')
+
+console.log(obj.a) // 2
+func()
+console.log(obj.a) // 3
+```
+
+
 
