@@ -2,5 +2,5 @@
 
 **1.  [npm script and commonjs](./npm-script-and-commonjs/index.md)**
 
-**2.  javascript in depth**
+**2.  web components**
 
