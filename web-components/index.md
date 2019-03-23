@@ -123,8 +123,9 @@ class PopUpInfo extends HTMLElement {
     super()
     const shadow = this.attachShadow({mode: 'open'})
     const content = document.getElementById('my-paragraph').content
+    const clone = content.cloneNode(true)
     
-    shadow.appendChild(content.cloneNode(true))
+    shadow.appendChild(clone)
   }
 }
 ```
