@@ -58,4 +58,4 @@ class MyTodo extends HTMLElement {
     }
 }
 
-window.customElements.define('my-todo', MyTodo)
+customElements.define('my-todo', MyTodo)

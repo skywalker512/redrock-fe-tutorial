@@ -29,4 +29,4 @@ class TodoInput extends HTMLElement {
     }
 }
 
-window.customElements.define('todo-input', TodoInput)
+customElements.define('todo-input', TodoInput)
